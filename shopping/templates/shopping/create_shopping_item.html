@@ -1,0 +1,9 @@
+<h3> Create new item </h3>
+
+<form action="/shopping/new" method="post">
+
+{{shoppingForm.as_table}}
+
+<input type="submit" name="submit_add" value="Create new">
+<input type="button" name="cancel" value="Cancel" onclick="window.location='/shopping/'">
+</form>

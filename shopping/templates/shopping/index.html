@@ -1,0 +1,11 @@
+<html>
+<h1> Heia detta e en test</h1>
+
+<form action="/shopping/new/">
+	<input type="submit" value="Add new Item">
+</form>
+
+{% for item in shoplist %}
+<h3> Name: {{item.item_name}}</h3>
+{% endfor %}
+</html>
