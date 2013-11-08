@@ -2,14 +2,14 @@
 
 {% block content %}
 
-<h3> Create new item </h3>
+<h3> Editing {{item.item_name}} </h3>
 
-<form action="/shopping/new/" method="post">
+<form action="/shopping/{{item.id}}/edit/" method="post">
 
 	{% csrf_token %}
-{{shoppingForm.as_table}}
+	{{itemform.as_table}}
 
-<input type="submit" name="submit_add" value="Create new" class="btn btn-success">
+<input type="submit" name="submit_add" value="Save" class="btn btn-success">
 <input type="button" name="cancel" value="Cancel" class="btn btn-danger" onclick="window.location='/shopping/'">
 </form>
 

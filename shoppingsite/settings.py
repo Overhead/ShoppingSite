@@ -37,7 +37,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shopping',
+    'crispy_forms',
 )
+
+CRISPY_TEMPLATE_PACK = 'bootstrap'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -60,8 +63,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ShoppingDB',
-        'USER' : 'root',
-        'PASSWORD' : 'AmysqlServer'
+        'USER' : 'EDIT',
+        'PASSWORD' : 'EDIT'
         
     }
 }

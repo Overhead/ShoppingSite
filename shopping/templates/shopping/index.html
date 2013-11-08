@@ -1,11 +1,36 @@
-<html>
-<h1> Heia detta e en test</h1>
+{% extends "shopping/base.html" %}
+
+{% block content %}
 
 <form action="/shopping/new/">
-	<input type="submit" value="Add new Item">
+	{% csrf_token %}
+	<input  type="submit" value="Add new Item" class="btn btn-small btn-primary">
 </form>
 
-{% for item in shoplist %}
-<h3> Name: {{item.item_name}}</h3>
-{% endfor %}
-</html>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Date</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for item in shoplist %}
+		<tr id="{{item.id}}">
+			<td>{{item.id}}</td>
+			<td>{{item.item_name}}</td>
+			<td>{{item.pub_date}}</td>
+			<td> <input type="button" value="Edit" class="btn btn-primary" onclick="editItem({{item.id}})"> </td>
+			<td> <input type="submit" value="Remove" class="btn btn-small btn-danger" onclick="removeShoppingItem({{item.id}});"> </td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<div id="delete_row_dialog" title="Remove row item?">
+<div id="delete_row_dialog_text"></div>
+</div>
+{% endblock %}
